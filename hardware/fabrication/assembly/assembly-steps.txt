@@ -1,0 +1,248 @@
+MONTAGEM: intercom
+Placa 85.0 x 52.0 mm. Posicao em mm a partir do centro da placa,
+vista por CIMA (X para a direita, Y para cima), igual aos arquivos da fresa.
+Peca normal: corpo em cima, solda embaixo. VIRADA: corpo embaixo, solda em cima.
+Imagem de cada passo nesta pasta (a 00-overview.png e a visao geral).
+Testes com o multimetro em continuidade: preta e vermelha sao as duas pontas.
+
+PASSO 1: VIAS (29)  [imagem 01-vias.png]
+  Fio passando pelo furo, solda dos DOIS lados, corta rente dos dois lados.
+  [ ] via     /NRF_SCK     X -32.8 Y  19.3  (canto superior esquerdo)
+  [ ] via     /NRF_MISO    X -26.8 Y  21.5  (canto superior esquerdo)
+  [ ] via     /NRF_MOSI    X -20.8 Y  23.8  (canto superior esquerdo)
+  [ ] VIAT1   GND          X -11.1 Y  16.3  (meio superior)
+  [ ] via     /NRF_CE      X  -2.8 Y  17.8  (meio superior)
+  [ ] via     /NRF_CSN     X   6.2 Y  20.8  (meio superior)
+  [ ] via     /MIC_P       X  -2.8 Y  14.0  (meio superior)
+  [ ] via     /Q_FILT      X  21.2 Y   7.3  (lado direito)
+  [ ] via     /AUDIO_PWM   X -18.6 Y   2.0  (lado esquerdo)
+  [ ] via     /BOTAO       X -13.3 Y  -1.0  (centro)
+  [ ] VIAT2   GND          X   0.2 Y   2.0  (centro)
+  [ ] VIAT3   GND          X   7.7 Y  -0.2  (centro)
+  [ ] VIAT4   GND          X  13.7 Y  -1.0  (centro)
+  [ ] via     /Q_FILT      X  17.4 Y   3.5  (lado direito)
+  [ ] via     /MIC_P       X  21.9 Y   2.8  (lado direito)
+  [ ] VIAT5   GND          X -23.0 Y -11.5  (canto inferior esquerdo)
+  [ ] via     /MIC_OUT     X -14.1 Y -13.7  (meio inferior)
+  [ ] via     +5V          X  -0.6 Y  -5.5  (centro)
+  [ ] via     +3V3         X   0.9 Y  -8.5  (centro)
+  [ ] via     /Q_BASE      X  24.9 Y  -9.2  (canto inferior direito)
+  [ ] via     /MIC_P       X  30.9 Y  -8.5  (lado direito)
+  [ ] via     +3V3         X -29.8 Y -16.7  (canto inferior esquerdo)
+  [ ] VIAT6   GND          X -11.8 Y -22.7  (meio inferior)
+  [ ] via     /MIC_OUT     X  -8.8 Y -19.0  (meio inferior)
+  [ ] via     /MIC_FILT    X  -5.1 Y -19.0  (meio inferior)
+  [ ] via     /MIC_FILT    X   6.2 Y -17.5  (meio inferior)
+  [ ] VIAT7   GND          X  23.4 Y -23.5  (canto inferior direito)
+  [ ] via     /Q_COL       X  30.2 Y -19.7  (canto inferior direito)
+  [ ] via     /Q_BASE      X  36.2 Y -16.0  (canto inferior direito)
+
+TESTE DAS REDES (depois das vias, antes dos componentes)  [imagens 01a-nets-top.png, 01b-nets-bottom.png]
+  Agora cada rede e um condutor so. Na imagem cada rede tem uma cor e um ponto de
+  teste com o nome dela. Multimetro em continuidade: ponta PRETA no ponto da rede
+  da linha, VERMELHA no ponto de cada rede listada. NADA pode apitar.
+  So aparecem redes vizinhas (a um sulco uma da outra): e onde o curto acontece.
+  Apitou: as duas cores se encostam em algum lugar. Procure raspa no sulco entre
+  elas, ou solda de via passando do pad; limpe e teste de novo.
+  Pontos de teste:
+    GND          VIAT1 em X-11.1 Y16.3, qualquer face
+    +3V3         via em X0.9 Y-8.5, qualquer face
+    +5V          via em X-0.6 Y-5.5, qualquer face
+    AUDIO_PWM    via em X-18.6 Y2.0, qualquer face
+    BOTAO        via em X-13.3 Y-1.0, qualquer face
+    FALANTE+     U1.7 em X21.3 Y-14.1, face de cima
+    FALANTE-     J3.2 em X18.0 Y-21.2, face de cima
+    MIC_FILT     via em X-5.1 Y-19.0, qualquer face
+    MIC_OUT      via em X-14.1 Y-13.7, qualquer face
+    MIC_P        via em X-2.8 Y14.0, qualquer face
+    NRF_CE       via em X-2.8 Y17.8, qualquer face
+    NRF_CSN      via em X6.2 Y20.8, qualquer face
+    NRF_MISO     via em X-26.8 Y21.5, qualquer face
+    NRF_MOSI     via em X-20.8 Y23.8, qualquer face
+    NRF_SCK      via em X-32.8 Y19.3, qualquer face
+    PAM_IN       J2.2 em X-27.0 Y-2.7, face de cima
+    POT_TOPO     J2.1 em X-25.2 Y-4.5, face de cima
+    Q_BASE       via em X24.9 Y-9.2, qualquer face
+    Q_COL        via em X30.2 Y-19.7, qualquer face
+    Q_FILT       via em X21.2 Y7.3, qualquer face
+  Testes:
+    [ ] preta em GND, vermelha em: +3V3, +5V, AUDIO_PWM, BOTAO, FALANTE+, FALANTE-, MIC_FILT, MIC_OUT, MIC_P, NRF_CE, NRF_CSN, NRF_MISO, NRF_MOSI, NRF_SCK, PAM_IN, POT_TOPO, Q_BASE, Q_COL, Q_FILT
+    [ ] preta em MIC_P, vermelha em: +3V3, +5V, FALANTE+, MIC_FILT, MIC_OUT, Q_BASE, Q_COL
+    [ ] preta em NRF_CSN, vermelha em: +3V3, AUDIO_PWM, NRF_CE, NRF_MISO, NRF_MOSI
+    [ ] preta em MIC_OUT, vermelha em: +3V3, +5V, MIC_FILT, Q_BASE, Q_COL
+    [ ] preta em NRF_SCK, vermelha em: +3V3, NRF_CE, NRF_MISO, NRF_MOSI
+    [ ] preta em +5V, vermelha em: +3V3, MIC_FILT, PAM_IN, Q_FILT
+    [ ] preta em Q_BASE, vermelha em: MIC_FILT, Q_COL
+    [ ] preta em PAM_IN, vermelha em: BOTAO, POT_TOPO
+    [ ] preta em NRF_MOSI, vermelha em: NRF_MISO
+    [ ] preta em MIC_FILT, vermelha em: +3V3
+    [ ] preta em FALANTE-, vermelha em: FALANTE+
+    [ ] preta em BOTAO, vermelha em: AUDIO_PWM
+
+PASSO 2: COMPONENTES, do menor para o maior (20)
+  100nF (104)  (C_Disc_D5.0mm_W2.5mm_P2.50mm)  [imagem 02-C3.png]
+    [ ] C3     X  19.8 Y -11.2  (canto inferior direito)  corpo em cima, solda embaixo
+           depois de soldar, rede x rede (nao apita):
+             [ ] MIC_P x FALANTE+
+             [ ] MIC_P x Q_BASE (C3 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+             [ ] MIC_P x MIC_OUT
+             [ ] MIC_P x GND
+             [ ] Q_BASE x MIC_OUT
+  10nF (103)  (C_Disc_D5.0mm_W2.5mm_P2.50mm)  [imagem 03-C4.png]
+    [ ] C4     X -18.0 Y -13.8  (canto inferior esquerdo)  corpo em cima, solda embaixo
+           depois de soldar, rede x rede (nao apita):
+             [ ] MIC_OUT x GND (C4 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+  100nF  (C_Disc_D5.0mm_W2.5mm_P2.50mm)  x2  [imagem 04-C6-C8.png]
+    [ ] C6     X  -9.5 Y -15.2  (meio inferior)  corpo em cima, solda embaixo
+           depois de soldar, rede x rede (nao apita):
+             [ ] +3V3 x GND (C6 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+    [ ] C8     X   9.5 Y  -5.5  (centro)  corpo em cima, solda embaixo
+           depois de soldar, rede x rede (nao apita):
+             [ ] +5V x GND (C8 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+  Alto-falante 8 ohm  (PinHeader_1x02_P2.54mm_Vertical)  [imagem 05-J3.png]
+    [ ] J3     X  19.8 Y -23.0  (canto inferior direito)  VIRADA: corpo embaixo, solda em CIMA
+           pinos: FALANTE+ em X  19.8 Y -23.0 | FALANTE- em X  18.0 Y -21.2
+           depois de soldar, rede x rede (nao apita):
+             [ ] FALANTE+ x FALANTE-
+             [ ] FALANTE+ x GND
+             [ ] FALANTE- x GND
+  Eletreto  (PinHeader_1x02_P2.54mm_Vertical)  [imagem 06-MK1.png]
+    [ ] MK1    X  -6.5 Y  15.5  (meio superior)  VIRADA: corpo embaixo, solda em CIMA
+           + para baixo e a direita, - (o terminal ligado na carcaca, GND) para o alto e a esquerda (olhando o lado do corpo, placa virada como pagina de livro)
+           pinos: - em X  -6.5 Y  15.5 (GND) | + em X  -8.3 Y  13.7 (MIC_P)
+           depois de soldar, rede x rede (nao apita):
+             [ ] GND x MIC_P
+  1k  (R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal)  [imagem 07-R1.png]
+    [ ] R1     X   9.8 Y -14.8  (meio inferior)  corpo em cima, solda embaixo
+           depois de soldar, rede x rede (nao apita):
+             [ ] +5V x MIC_OUT
+             [ ] +5V x GND (C8 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+             [ ] MIC_FILT x MIC_OUT
+  2k2  (R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal)  x3  [imagem 08-R2-R4-R6.png]
+    [ ] R2     X  28.5 Y  -3.8  (lado direito)  VIRADA: corpo embaixo, solda em CIMA
+           depois de soldar, rede x rede (nao apita):
+             [ ] MIC_FILT x GND
+             [ ] MIC_P x GND
+    [ ] R4     X  32.2 Y  13.0  (canto superior direito)  corpo em cima, solda embaixo
+           depois de soldar, rede x rede (nao apita):
+             [ ] Q_FILT x GND
+             [ ] Q_COL x GND
+    [ ] R6     X  30.5 Y  -0.8  (lado direito)  corpo em cima, solda embaixo
+           depois de soldar, rede x rede (nao apita):
+             [ ] Q_COL x GND
+             [ ] MIC_OUT x Q_COL
+             [ ] MIC_OUT x GND (C4 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+  100  (R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal)  [imagem 09-R3.png]
+    [ ] R3     X  11.8 Y  10.0  (meio superior)  corpo em cima, solda embaixo
+           depois de soldar, rede x rede (nao apita):
+             [ ] +5V x MIC_P
+             [ ] Q_FILT x GND
+  470k  (R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal)  [imagem 10-R5.png]
+    [ ] R5     X  34.0 Y -20.8  (canto inferior direito)  corpo em cima, solda embaixo
+           depois de soldar, rede x rede (nao apita):
+             [ ] Q_COL x GND
+             [ ] Q_BASE x GND
+  33k  (R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal)  [imagem 11-R7.png]
+    [ ] R7     X -15.2 Y   2.0  (lado esquerdo)  VIRADA: corpo embaixo, solda em CIMA
+           depois de soldar, rede x rede (nao apita):
+             [ ] AUDIO_PWM x GND
+             [ ] POT_TOPO x PAM_IN
+  Potenciometro 10k (topo, cursor, GND)  (PinHeader_1x03_P2.54mm_Vertical)  [imagem 12-J2.png]
+    [ ] J2     X -25.2 Y  -4.5  (lado esquerdo)  VIRADA: corpo embaixo, solda em CIMA
+           pinos: POT_TOPO em X -25.2 Y  -4.5 | PAM_IN em X -27.0 Y  -2.7 | GND em X -28.8 Y  -0.9
+           depois de soldar, rede x rede (nao apita):
+             [ ] POT_TOPO x PAM_IN
+             [ ] POT_TOPO x GND
+             [ ] PAM_IN x GND
+  BC547  (TO-92_Inline_Wide)  [imagem 13-Q1.png]
+    [ ] Q1     X  29.2 Y -24.0  (canto inferior direito)  VIRADA: corpo embaixo, solda em CIMA
+           face reta para baixo e a direita (olhando o lado do corpo, placa virada como pagina de livro); de frente para a face reta, pernas para baixo: C B E da esquerda para a direita
+           pinos: C em X  29.2 Y -24.0 (Q_COL) | B em X  27.5 Y -22.2 (Q_BASE) | E em X  25.7 Y -20.4 (GND)
+           depois de soldar, rede x rede (nao apita):
+             [ ] Q_COL x Q_BASE
+             [ ] Q_COL x GND
+             [ ] Q_BASE x GND
+  100uF  (CP_Radial_D6.3mm_P2.50mm)  x3  [imagem 14-C1-C2-C5.png]
+    [ ] C1     X -15.5 Y -18.8  (canto inferior esquerdo)  VIRADA: corpo embaixo, solda em CIMA
+           + (perna comprida) para o alto e a direita, - (faixa) para baixo e a esquerda (olhando o lado do corpo, placa virada como pagina de livro)
+           pinos: + em X -15.5 Y -18.8 (MIC_FILT) | - em X -13.7 Y -20.5 (GND)
+           depois de soldar, rede x rede (nao apita):
+             [ ] MIC_FILT x GND (C1 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+    [ ] C2     X  13.8 Y   4.8  (centro)  corpo em cima, solda embaixo
+           + (perna comprida) para o alto, - (faixa) para baixo (olhando o lado do corpo)
+           pinos: + em X  13.8 Y   4.8 (Q_FILT) | - em X  13.8 Y   2.2 (GND)
+           depois de soldar, rede x rede (nao apita):
+             [ ] Q_FILT x GND (C2 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+             [ ] Q_FILT x +5V
+             [ ] GND x +5V (C8 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+    [ ] C5     X -29.5 Y -22.0  (canto inferior esquerdo)  VIRADA: corpo embaixo, solda em CIMA
+           + (perna comprida) para a esquerda, - (faixa) para a direita (olhando o lado do corpo, placa virada como pagina de livro)
+           pinos: + em X -29.5 Y -22.0 (+3V3) | - em X -32.0 Y -22.0 (GND)
+           depois de soldar, rede x rede (nao apita):
+             [ ] +3V3 x GND (C5 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+  Falar  (SW_PUSH_6mm)  [imagem 15-SW1.png]
+    [ ] SW1    X -10.0 Y  -2.0  (centro)  VIRADA: corpo embaixo, solda em CIMA
+           depois de soldar, rede x rede (nao apita):
+             [ ] BOTAO x PAM_IN
+             [ ] BOTAO x GND
+  1000uF  (CP_Radial_D10.0mm_P5.00mm)  [imagem 16-C7.png]
+    [ ] C7     X -18.8 Y  12.2  (canto superior esquerdo)  corpo em cima, solda embaixo
+           + (perna comprida) para baixo, - (faixa) para o alto (olhando o lado do corpo)
+           pinos: + em X -18.8 Y  12.2 (+5V) | - em X -18.8 Y  17.2 (GND)
+           depois de soldar, rede x rede (nao apita):
+             [ ] +5V x GND (C7 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+             [ ] GND x NRF_CE
+
+PASSO 3: MODULOS ELEVADOS, por ultimo (3)
+  Embaixo deles pode ficar a solda de outra peca: confira que ela ja esta feita.
+  [ ] U1     PAM8403  (PAM8403_Modulo)  [imagem 17-U1.png]
+        X  11.8 Y  -8.8  (meio inferior)  VIRADA: corpo embaixo, solda em CIMA
+        pinos: 1 em X   2.2 Y -16.7 (PAM_IN)
+        embaixo dele: C3, C8, R1, VIAT3, VIAT4
+        depois de soldar, rede x rede (nao apita):
+          [ ] PAM_IN x GND (U1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] +5V x GND (C7 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+          [ ] +5V x +3V3
+          [ ] GND x +3V3 (C5 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+          [ ] FALANTE- x FALANTE+ (U1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] FALANTE- x GND (U1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] FALANTE+ x MIC_P
+          [ ] FALANTE+ x GND (U1 pode ligar as duas por dentro: bip curto e normal)
+  [ ] J1     nRF24 PA+LNA  (nRF24L01_PA_LNA_Modulo)  [imagem 18-J1.png]
+        X   0.2 Y  15.2  (meio superior)  VIRADA: corpo embaixo, solda em CIMA
+        pinos: 1 em X   0.2 Y  15.2 (GND)
+        embaixo dele: R3, R4
+        depois de soldar, rede x rede (nao apita):
+          [ ] GND x +3V3 (C5 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+          [ ] GND x NRF_CE (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] +3V3 x NRF_CSN (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_CE x NRF_CSN (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_CE x NRF_SCK (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_CSN x GND (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_CSN x NRF_MOSI (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_SCK x NRF_MOSI (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_SCK x NRF_MISO (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_MISO x NRF_MOSI (J1 pode ligar as duas por dentro: bip curto e normal)
+  [ ] A1     Nano ou LGT8F328P  (Arduino_Nano)  [imagem 19-A1.png]
+        X  -3.9 Y   7.0  (centro)  corpo em cima, solda embaixo
+        pinos: 1 D1/TX em X  -3.9 Y   7.0 (NC)
+        embaixo dele: J2, R7, SW1
+        depois de soldar, rede x rede (nao apita):
+          [ ] GND x BOTAO (A1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_CE x NRF_CSN (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_CSN x AUDIO_PWM (A1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_MOSI x NRF_MISO (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_MISO x NRF_SCK (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_SCK x +3V3 (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] NRF_SCK x GND (J1 pode ligar as duas por dentro: bip curto e normal)
+          [ ] +3V3 x GND (C5 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+          [ ] +5V x GND (C7 liga as duas: bip curto e normal, ele carrega; bip continuo e curto)
+
+TESTE FINAL, antes de ligar a placa (pontos de teste do TESTE DAS REDES)
+  Multimetro em resistencia (ou continuidade). Bip curto que para e normal: sao os
+  capacitores carregando. Bip continuo ou perto de 0 ohm e curto: nao ligue.
+  [ ] +3V3 x GND
+  [ ] +5V x GND
+  [ ] +3V3 x +5V
+
+Total: 29 via(s), 20 componente(s), 3 modulo(s) elevado(s): 52 itens.

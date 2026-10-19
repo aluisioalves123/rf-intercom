@@ -1,0 +1,15 @@
+(version 1)
+# --- roteador CNC: gerado pelo plugin, nao editar ---
+(rule "cnc_solda_em_cima_so_pecas_viradas"
+  (layer "F.Cu")
+  (condition "A.Type == 'Pad' && !A.memberOfFootprint('VIAT*') && !(A.memberOfFootprint('C1') || A.memberOfFootprint('C5') || A.memberOfFootprint('J1') || A.memberOfFootprint('J2') || A.memberOfFootprint('J3') || A.memberOfFootprint('MK1') || A.memberOfFootprint('Q1') || A.memberOfFootprint('R2') || A.memberOfFootprint('R7') || A.memberOfFootprint('SW1') || A.memberOfFootprint('U1'))")
+  (constraint zone_connection none))
+(rule "cnc_solda_embaixo_so_pecas_normais"
+  (layer "B.Cu")
+  (condition "A.Type == 'Pad' && (A.memberOfFootprint('C1') || A.memberOfFootprint('C5') || A.memberOfFootprint('J1') || A.memberOfFootprint('J2') || A.memberOfFootprint('J3') || A.memberOfFootprint('MK1') || A.memberOfFootprint('Q1') || A.memberOfFootprint('R2') || A.memberOfFootprint('R7') || A.memberOfFootprint('SW1') || A.memberOfFootprint('U1'))")
+  (constraint zone_connection none))
+(rule "cnc_sem_alivio_C4_2_BCu"
+  (layer "B.Cu")
+  (condition "A.Type == 'Pad' && A.memberOfFootprint('C4') && A.Pad_Number == '2'")
+  (constraint zone_connection none))
+# --- fim do roteador CNC ---

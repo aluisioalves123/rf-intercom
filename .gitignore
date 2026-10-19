@@ -1,0 +1,12 @@
+# KiCad
+*-backups/
+*.kicad_prl
+fp-info-cache
+_autosave-*
+*.lck
+\#auto_saved_files\#
+# KiCad local history (has its own .git inside)
+.history/
+
+# OpenSCAD / tooling
+*.bak
