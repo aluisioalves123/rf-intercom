@@ -9,11 +9,9 @@ Projeto completo feito em casa: circuito, placa de circuito impresso fresada num
   <img src="docs/photos/unit.jpg" width="45%" alt="Uma unidade">
 </p>
 
-**As duas unidades conversando** (clique para ver o vídeo, com som):
+**As duas unidades conversando** (com som):
 
-<p align="center">
-  <a href="docs/demo.mp4"><img src="docs/photos/demo-thumb.jpg" width="280" alt="Vídeo: as duas unidades conversando"></a>
-</p>
+https://github.com/user-attachments/assets/871d9580-77c3-4d14-9feb-cfa74ef9aef5
 
 ## Como funciona
 
